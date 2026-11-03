@@ -1,0 +1,22 @@
+# 运行时/临时产物（都不属于源码）
+*.jsonl.zstd
+*.jsonl.zstd.repaired-*
+.rollback/
+_dsh-auto-continue-backups/
+rollback/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 依赖：只有 vendored 的 @deepseek-ai/* 需要入库，其余一律忽略。
+# 这两份是插件运行时的依赖（README「关于那份 vendored schema」一节有说明），
+# 其余 node_modules 内容都不是源码。
+node_modules/*
+!node_modules/@deepseek-ai/
+node_modules/@deepseek-ai/*
+!node_modules/@deepseek-ai/schemastery/
+!node_modules/@deepseek-ai/cosmokit/

@@ -1,0 +1,44 @@
+{
+  "name": "dsh-auto-continue",
+  "version": "1.0.0",
+  "description": "DSH 输出上限自动续写：一轮回答撞到最大输出 token 时，自动往会话里追发一条「继续」，让模型接着写完，不用手动催",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "auto-continue",
+    "max-tokens",
+    "continuation"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "tools",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "node_modules/@deepseek-ai/schemastery",
+    "node_modules/@deepseek-ai/cosmokit"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*"
+  },
+  "scripts": {
+    "test": "node verify/verify-host.mjs && node verify/probe-defects.mjs && node verify/probe-message-shape.mjs",
+    "test:offline": "node verify/verify-host.mjs",
+    "test:locks": "node verify/probe-defects.mjs",
+    "test:shape": "node verify/probe-message-shape.mjs"
+  },
+  "license": "MIT"
+}
